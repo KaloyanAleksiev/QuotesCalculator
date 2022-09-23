@@ -1,3 +1,30 @@
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800&display=swap);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#app {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("../../public/images/background.jpg");
+    background-position: 50%;
+    background-size: cover;
+}
+
+.from {
+    background-image: url("../../public/images/location-from-filled.svg");
+    background-size: 48px;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+}
+
+.to {
+    background-image: url("../../public/images/location-from.svg");
+    background-size: 48px;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+}
