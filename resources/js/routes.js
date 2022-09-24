@@ -1,5 +1,5 @@
 import NotFound from './components/NotFound'
-import Home from './components/Home'
+import Quote from './components/Quote'
 
 export default [
     {
@@ -8,6 +8,6 @@ export default [
     },
     {
         path: '/',
-        component: Home,
+        component: Quote,
     }
 ]
