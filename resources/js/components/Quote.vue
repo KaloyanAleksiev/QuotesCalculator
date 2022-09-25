@@ -48,7 +48,7 @@
         </form>
         <router-view/>
         <results :showing="showResults">
-            <p>{{ this.results }}</p>
+            <p>Rate: {{ this.results.rate }}</p>
         </results>
     </div>
 </template>
@@ -79,7 +79,6 @@ export default {
             this.showResults = false;
             axios.post('/api/quote', this.form).then((response) => {
                 this.results = response.data;
-
                 this.showResults = true;
                 this.disabled = false;
             }).catch((error) => {

@@ -20529,7 +20529,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     showing: $data.showResults
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_this.results), 1
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Rate: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_this.results.rate), 1
       /* TEXT */
       )];
     }),
@@ -20557,19 +20557,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "bg-white bg-clip-padding rounded-md"
+  "class": "bg-white rounded-md"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "p-4 border-b border-gray-200"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
-  "class": "text-center text-3xl font-extrabold font-['Raleway'] leading-7"
+  "class": "text-center text-3xl font-extrabold font-['Raleway'] leading-7 pl-20 pr-20"
 }, " Results ")], -1
 /* HOISTED */
 );
 
 var _hoisted_3 = {
-  "class": "p-3"
+  "class": "text-center p-3"
 };
 var _hoisted_4 = {
   "class": "flex justify-center p-3"

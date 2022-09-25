@@ -26,11 +26,11 @@ class QuoteRequest extends FormRequest
         return [
             'ship_from' => [
                 'required',
-                'regex:/^[0-9]{6,6}$/'
+                'regex:/^[0-9]{5,5}$/'
             ],
             'deliver_to' => [
                 'required',
-                'regex:/^[0-9]{6,6}+$/'
+                'regex:/^[0-9]{5,5}+$/'
             ],
             'transport' => [
                 'required',
@@ -48,8 +48,8 @@ class QuoteRequest extends FormRequest
     public function messages()
     {
         return [
-            'ship_from.regex' => 'Please enter a six digits number',
-            'deliver_to.regex' => 'Please enter a six digits number',
+            'ship_from.regex' => 'Please enter a five digits number',
+            'deliver_to.regex' => 'Please enter a five digits number',
         ];
     }
 }

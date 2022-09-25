@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'zip_code' => [
+        'domain' => env('ZIP_CODE_API_DOMAIN', 'https://www.zipcodeapi.com/rest/'),
+        'secret' => env('ZIP_CODE_API_ACCESS_KEY', 'DemoOnly00eCyRC4649ayniRYOa1TVNGIZwgrP4LSIynG1irqfL279RAK5fhuGdo'),
+    ],
+
 ];

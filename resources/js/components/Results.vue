@@ -1,13 +1,13 @@
 <template>
     <div v-if="showing" @click.self="showing = false" class="fixed w-full h-full flex items-center justify-center bg-gray-700 bg-opacity-50">
         <div>
-            <div class="bg-white bg-clip-padding rounded-md">
+            <div class="bg-white rounded-md">
                 <div class="p-4 border-b border-gray-200">
-                    <h5 class="text-center text-3xl font-extrabold font-['Raleway'] leading-7">
+                    <h5 class="text-center text-3xl font-extrabold font-['Raleway'] leading-7 pl-20 pr-20">
                         Results
                     </h5>
                 </div>
-                <div class="p-3">
+                <div class="text-center p-3">
                     <slot/>
                 </div>
                 <div class="flex justify-center p-3">
