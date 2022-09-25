@@ -16,26 +16,29 @@
                 <label class="uppercase text-xs font-semibold group-focus-within:text-[#252cbe]">Ship from</label>
                 <input type="text" placeholder="ZIP Code" v-model="form.ship_from" required
                        class="from py-2 px-3 rounded border-2 mt-1 min-h-[52px] min-w-[345px] focus:shadow-md focus:shadow-[#252cbe]/50 focus:outline-none focus:ring-2 focus:ring-[#252cbe]/50 focus:border-transparent italic"/>
+                <span class="w-full text-red-500" v-if="errors.ship_from">{{errors.ship_from[0]}}</span>
             </div>
             <div class="grid grid-cols-1 mt-4 group">
                 <label class="uppercase text-xs font-semibold group-focus-within:text-[#252cbe]">Deliver to</label>
                 <input type="text" placeholder="ZIP Code" v-model="form.deliver_to" required
                        class="to py-2 px-3 rounded border-2 mt-1 min-h-[52px] min-w-[345px] focus:shadow-md focus:shadow-[#252cbe]/50 focus:outline-none focus:ring-2 focus:ring-[#252cbe]/50 focus:border-transparent italic"/>
+                <span class="w-full text-red-500" v-if="errors.deliver_to">{{errors.deliver_to[0]}}</span>
             </div>
             <div class="grid grid-cols-1 mt-5">
                 <label class="uppercase text-xs font-semibold">Transport method</label>
                 <div class="flex flex-wrap mt-2 text-gray-400 text-lg">
                     <div class="flex items-center mr-4">
-                        <input id="openTransport" type="radio" v-model="form.transport" value="open" checked
+                        <input id="openTransport" type="radio" v-model="form.transport" value="0" checked
                                class="w-5 h-5 accent-[#252cbe] peer">
                         <label for="openTransport" class="ml-1 font-semibold peer-checked:text-black">Open</label>
                     </div>
                     <div class="flex items-center mr-4">
-                        <input id="closeTransport" type="radio" v-model="form.transport" value="enclosed"
+                        <input id="closeTransport" type="radio" v-model="form.transport" value="1"
                                class="w-5 h-5 accent-[#252cbe] peer">
                         <label for="closeTransport" class="ml-1 font-semibold peer-checked:text-black">Enclosed</label>
                     </div>
                 </div>
+                <span class="w-full text-red-500" v-if="errors.transport">{{errors.transport[0]}}</span>
             </div>
             <div class="grid grid-cols-1 mt-5">
                 <button type="submit"
@@ -58,18 +61,22 @@ export default {
             form: {
                 ship_from: '',
                 deliver_to: '',
-                transport: [],
+                transport: '0',
             },
             errors: []
         }
     },
     methods: {
         getQuote() {
-            axios.post('/api/quote', this.form).then(() => {
-                console.dir(this.form)
+            this.errors = [];
+            axios.post('/api/quote', this.form).then((response) => {
+                // console.dir(this.form)
+                console.dir(response)
                 //Get calculated quote from back-end and show it to the user
             }).catch((error) => {
-                this.errors = error.response.data.errors;
+                if (error.response.status === 422) {
+                    this.errors = error.response.data.errors;
+                }
             })
         }
     }
