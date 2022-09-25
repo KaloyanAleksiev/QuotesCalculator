@@ -1,12 +1,11 @@
 <template>
-    <nav-bar></nav-bar>
     <div class="flex flex-col">
+        <nav-bar></nav-bar>
         <div class="m-auto pt-5">
             <a href="/">
                 <img :src="'/images/logo.svg'" width="200" alt="SGT auto transport logo">
             </a>
         </div>
-
         <form class="m-auto mt-24 py-10 px-12 bg-white rounded-md drop-shadow-2xl" @submit.prevent="getQuote">
             <div class="text-center text-3xl font-extrabold font-['Raleway'] leading-7">
                 <div>Get a Free</div>
@@ -41,21 +40,25 @@
                 <span class="w-full text-red-500" v-if="errors.transport">{{errors.transport[0]}}</span>
             </div>
             <div class="grid grid-cols-1 mt-5">
-                <button type="submit"
-                        class="bg-[#fb3d37] text-white py-3 rounded text-center uppercase text-xl font-extrabold font-['Raleway']">
+                <button type="submit" :disabled="disabled"
+                        class="bg-[#fb3d37] text-white py-3 rounded text-center uppercase text-xl font-extrabold font-['Raleway'] disabled:opacity-75">
                     Get a quote
                 </button>
             </div>
         </form>
         <router-view/>
+        <results :showing="showResults">
+            <p>{{ this.results }}</p>
+        </results>
     </div>
 </template>
 
 <script>
 import NavBar from "./layouts/NavBar"
+import Results from "./Results";
 
 export default {
-    components: {NavBar},
+    components: {Results, NavBar},
     data() {
         return {
             form: {
@@ -63,20 +66,27 @@ export default {
                 deliver_to: '',
                 transport: '0',
             },
+            disabled: false,
+            showResults: false,
+            results: '',
             errors: []
         }
     },
     methods: {
         getQuote() {
             this.errors = [];
+            this.disabled = true;
+            this.showResults = false;
             axios.post('/api/quote', this.form).then((response) => {
-                // console.dir(this.form)
-                console.dir(response)
-                //Get calculated quote from back-end and show it to the user
+                this.results = response.data;
+
+                this.showResults = true;
+                this.disabled = false;
             }).catch((error) => {
                 if (error.response.status === 422) {
                     this.errors = error.response.data.errors;
                 }
+                this.disabled = false;
             })
         }
     }

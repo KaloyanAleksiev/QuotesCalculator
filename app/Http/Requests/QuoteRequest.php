@@ -48,8 +48,8 @@ class QuoteRequest extends FormRequest
     public function messages()
     {
         return [
-            'ship_from.regex' => 'The field expect six digit number',
-            'deliver_to.regex' => 'The field expect six digit number',
+            'ship_from.regex' => 'Please enter a six digits number',
+            'deliver_to.regex' => 'Please enter a six digits number',
         ];
     }
 }
