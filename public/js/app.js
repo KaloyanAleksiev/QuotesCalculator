@@ -20450,6 +20450,15 @@ var _hoisted_20 = {
   "class": "grid grid-cols-1 mt-5"
 };
 var _hoisted_21 = ["disabled"];
+var _hoisted_22 = {
+  key: 0
+};
+var _hoisted_23 = {
+  key: 1
+};
+var _hoisted_24 = {
+  key: 2
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
 
@@ -20529,9 +20538,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     showing: $data.showResults
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Rate: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_this.results.rate), 1
+      return [_this.results.enclosed !== '0' && _this.results.enclosed !== '0.00' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_22, " Enclosed: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_this.results.enclosed), 1
       /* TEXT */
-      )];
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _this.results.rate !== '0.00' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_23, " Rate: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_this.results.rate), 1
+      /* TEXT */
+      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_24, " Incorrect Input! Please double check your ZIP codes! "))];
     }),
     _: 1
     /* STABLE */

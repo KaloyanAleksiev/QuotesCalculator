@@ -48,7 +48,16 @@
         </form>
         <router-view/>
         <results :showing="showResults">
-            <p>Rate: {{ this.results.rate }}</p>
+            <p v-if="this.results.enclosed !== '0' && this.results.enclosed !== '0.00'">
+                Enclosed: {{ this.results.enclosed }}
+            </p>
+            <p v-if="this.results.rate !== '0.00'">
+                Rate: {{ this.results.rate }}
+            </p>
+            <p v-else>
+                Incorrect Input!
+                Please double check your ZIP codes!
+            </p>
         </results>
     </div>
 </template>

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Quote extends Model
+class Log extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Quote extends Model
      *
      * @var string
      */
-    protected $table = 'quotes';
+    protected $table = 'logs';
 
     /**
      * The attributes that are mass assignable.
@@ -22,6 +22,6 @@ class Quote extends Model
      * @var array
      */
     protected $fillable = [
-        'ship_from', 'deliver_to', 'transport', 'distance', 'rate'
+        'source', 'data'
     ];
 }
